@@ -12,7 +12,7 @@ private:
 public:
     Smart_Vehicle(int _N, double _Velocity , double _computation_speed);
     virtual ~Smart_Vehicle() ;
-    virtual void display_information();
+    virtual void display_information(std::atomic<bool>& finished);
     double get_computation_Speed();
 };
 

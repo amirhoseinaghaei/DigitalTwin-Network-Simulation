@@ -3,8 +3,10 @@
 #include<unistd.h> 
 
 
-PS_BS_Connection::PS_BS_Connection()
+PS_BS_Connection::PS_BS_Connection(std::atomic<bool> _finished)
 {
+
+    finished.store(_finished);
     std::cout << "PS_BS_Connection Constructor" << std::endl;
 }
 
@@ -14,7 +16,7 @@ PS_BS_Connection::~PS_BS_Connection()
 }
 
 
-void PS_BS_Connection::Send_PS(int preiod, PhysicalSystem* ps, int Bs_Id)
+void PS_BS_Connection::Send_PS(int preiod, PhysicalSystem* ps, int Bs_Id, std::atomic<bool>& finished)
 {
   
         for (int i = 0; i < ps->N; i++)
@@ -24,6 +26,7 @@ void PS_BS_Connection::Send_PS(int preiod, PhysicalSystem* ps, int Bs_Id)
                 if(ps->get_tasksize()[i] <= 0)
                 {
                     BSs[Bs_Id].Add_DT(Digital_Twin{ps->get_velocity()});
+                    // BSs[Bs_Id].display_dts();
                     break;
                 }
                 else
@@ -33,6 +36,8 @@ void PS_BS_Connection::Send_PS(int preiod, PhysicalSystem* ps, int Bs_Id)
                 sleep(1);            
             }
         }
+        finished.store(true);
+        std::cout << finished << std::endl;
         
 
 }

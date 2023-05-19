@@ -1,6 +1,8 @@
 
 #include "Mobile_Device.h"
 #include <iostream>
+#include <cstdlib>
+#include <memory>
 
 Mobile_Device::Mobile_Device(int _N, double _Velocity , double _computation_speed) : PhysicalSystem{_N, _Velocity} , computation_speed{_computation_speed}
 {
@@ -11,9 +13,9 @@ Mobile_Device::~Mobile_Device()
 {
     std::cout << "MobileDevice Destructor" << std::endl ;
 }
-void Mobile_Device::display_information()
+void Mobile_Device::display_information(std::atomic<bool>& finished)
 {
-    PhysicalSystem::display_information(); 
+    PhysicalSystem::display_information(finished); 
     std::cout << "Computation speed: " << get_computation_Speed() << std::endl;
 
 }

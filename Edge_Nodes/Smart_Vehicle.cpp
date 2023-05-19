@@ -1,5 +1,7 @@
 #include "Smart_Vehicle.h"
 #include <iostream>
+#include <cstdlib>
+#include <memory>
 
 Smart_Vehicle::Smart_Vehicle(int _N, double _Velocity , double _computation_speed) : PhysicalSystem{_N, _Velocity} , computation_speed{_computation_speed}
 {
@@ -10,9 +12,9 @@ Smart_Vehicle::~Smart_Vehicle()
 {
     std::cout << "MobileDevice Destructor" << std::endl ;
 }
-void Smart_Vehicle::display_information()
+void Smart_Vehicle::display_information(std::atomic<bool>& finished)
 {
-    PhysicalSystem::display_information(); 
+    PhysicalSystem::display_information(finished); 
     std::cout << "Computation speed: " << get_computation_Speed() << std::endl;
 
 }

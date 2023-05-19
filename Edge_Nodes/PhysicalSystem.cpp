@@ -14,7 +14,7 @@ PhysicalSystem::~PhysicalSystem()
     std::cout << "destructor" << std::endl;
 }
 
-void PhysicalSystem::display_information()
+void PhysicalSystem::display_information(std::atomic<bool>& finished)
 {
     while (true)
     {
@@ -26,6 +26,10 @@ void PhysicalSystem::display_information()
         }
         std::cout << std::endl ; 
         sleep(1);
+        if (finished)
+        {
+            break;
+        }
     }
     
 
