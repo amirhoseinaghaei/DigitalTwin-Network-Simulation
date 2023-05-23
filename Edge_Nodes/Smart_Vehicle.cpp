@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <memory>
 
-Smart_Vehicle::Smart_Vehicle(int _N, double _Velocity , double _computation_speed) : PhysicalSystem{_N, _Velocity} , computation_speed{_computation_speed}
+Smart_Vehicle::Smart_Vehicle(int _N, int id, double _TransmissionPower , double _computation_speed) : PhysicalSystem{_N, id, _TransmissionPower} , computation_speed{_computation_speed}
 {
     std:: cout << "MobileDevice consatructor" << std::endl; 
 }

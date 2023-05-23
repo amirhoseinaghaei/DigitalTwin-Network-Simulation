@@ -5,17 +5,19 @@
 #include <atomic>
 class PhysicalSystem
 {
-private:
-    double Velocity; 
-    double * task_size; 
 public:
     int N;
-    PhysicalSystem(int _N, double _Velocity);
+    int Id;
+private:
+    double TransmissionPower; 
+    double * task_size; 
+public:
+    PhysicalSystem(int _N, int Id, double transmissionpower);
     virtual ~PhysicalSystem();
     virtual void display_information(std::atomic<bool>& finished); 
-    void fill_velocities();
+    void fill_tasks();
     double* get_tasksize();
-    double get_velocity();
+    double get_transmissionpower();
 };
 
 

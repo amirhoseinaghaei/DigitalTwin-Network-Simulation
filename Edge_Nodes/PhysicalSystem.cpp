@@ -2,7 +2,7 @@
 #include <iostream>
 #include<unistd.h> 
 
-PhysicalSystem::PhysicalSystem(int _N, double _Velocity) : N{_N} , Velocity{_Velocity}
+PhysicalSystem::PhysicalSystem(int _N, int Id, double transmissionpower) : N{_N} , Id{Id}, TransmissionPower{transmissionpower}
 {
     task_size = new double[N];
     std::cout << "Constructor" << std::endl;
@@ -11,14 +11,14 @@ PhysicalSystem::PhysicalSystem(int _N, double _Velocity) : N{_N} , Velocity{_Vel
 PhysicalSystem::~PhysicalSystem()
 {
     delete[] task_size;
-    std::cout << "destructor" << std::endl;
+    std::cout << "Destructor" << std::endl;
 }
 
 void PhysicalSystem::display_information(std::atomic<bool>& finished)
 {
     while (true)
     {
-        std::cout<< "Velocity is equal to:" << Velocity << std::endl; 
+        std::cout<< "TransmissionPower is equal to:" << TransmissionPower << std::endl; 
         for (size_t i{}; i < N; i++)
         {
             std::cout << i << "th task size is: " << task_size[i] << " -- " ;  
@@ -26,22 +26,24 @@ void PhysicalSystem::display_information(std::atomic<bool>& finished)
         }
         std::cout << std::endl ; 
         sleep(1);
-        if (finished)
-        {
-            break;
-        }
     }
     
 
 }
 
-void PhysicalSystem::fill_velocities()
+void PhysicalSystem::fill_tasks()
 {
-    for (size_t i{0}; i < N; i++)
+    while (true)
     {
-        task_size[i] = 10 ; 
-        /* code */
-    }    
+        for (size_t i{0}; i < N; i++)
+        {
+            task_size[i] = 10 ; 
+            /* code */
+        }  
+        sleep(7);
+    }
+    
+  
 }
 double* PhysicalSystem::get_tasksize()
 {
@@ -49,7 +51,7 @@ double* PhysicalSystem::get_tasksize()
 
 }
 
-double PhysicalSystem::get_velocity()
+double PhysicalSystem::get_transmissionpower()
 {
-    return Velocity;
+    return TransmissionPower;
 }

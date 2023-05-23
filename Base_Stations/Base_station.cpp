@@ -1,6 +1,6 @@
 #include "Base_station.h"
 #include <iostream>
-
+#include <unistd.h>
 
 Base_station::Base_station(int _id): id{_id}
 {
@@ -12,19 +12,32 @@ Base_station::~Base_station()
     std::cout << "Base station destrcutor" << std::endl;
 }
 
-void Base_station::Add_DT(Digital_Twin DT)
+void Base_station::Add_DT(int ps_id, Digital_Twin DT)
 {
-    Dts.push_back(DT);
-}
-void Base_station::display_dts()
-{
-    for (size_t i{}; i < Dts.size(); i++)
+    if (DTs.find(ps_id) == DTs.end()) {
+        DTs[ps_id] = DT;
+    }
+    else
     {
-        std::cout << i << "th DT data is: " << Dts[i].get_data() << std::endl;
+        DTs[ps_id].Set_Parameters((rand() % (15 - 5 + 1)) + 5, 10,10);
     }
 }
-std::vector<Digital_Twin> Base_station::get_Dts()
+void Base_station::display_dts(std::atomic<bool>& finished)
 {
-    return Dts;
+
+        std::cout << "The DTs for base station "<< id << " is as follow: " << std::endl;
+
+        for (auto  x : DTs)
+        {
+            std::cout << "DT with id " << x.first << " has location of " << x.second.get_location() << "  ";
+
+        }
+        std::cout << std::endl;
+    
+
+}
+std::map<int, Digital_Twin> Base_station::get_Dts()
+{
+    return DTs;
 }
 

@@ -4,11 +4,15 @@
 class Digital_Twin
 {
 private:
-    double data; 
+    double Location; 
+    double Max_Transpower;
+    double Computation_Resource;
 public:
-    Digital_Twin(double _data);
+    Digital_Twin() = default;
+    Digital_Twin(double location, double max_transPower, double computation_resource);
     ~Digital_Twin();
-    double get_data();
+    double get_location();
+    void Set_Parameters(double location, double max_transPower, double computation_resource);
 };
 
 

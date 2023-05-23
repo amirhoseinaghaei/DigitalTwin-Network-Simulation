@@ -10,10 +10,11 @@ class Smart_Vehicle : public PhysicalSystem
 private:
     double computation_speed; 
 public:
-    Smart_Vehicle(int _N, double _Velocity , double _computation_speed);
+    int a ;
+    Smart_Vehicle(int _N, int id, double _TransmissionPower , double _computation_speed);
     virtual ~Smart_Vehicle() ;
     virtual void display_information(std::atomic<bool>& finished);
-    double get_computation_Speed();
+    virtual double get_computation_Speed();
 };
 
 

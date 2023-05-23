@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <memory>
 
-Mobile_Device::Mobile_Device(int _N, double _Velocity , double _computation_speed) : PhysicalSystem{_N, _Velocity} , computation_speed{_computation_speed}
+Mobile_Device::Mobile_Device(int _N, int id,  double _TransmissionPower , double _computation_speed) : PhysicalSystem{_N,id, _TransmissionPower} , computation_speed{_computation_speed}
 {
     std:: cout << "MobileDevice consatructor" << std::endl; 
 }

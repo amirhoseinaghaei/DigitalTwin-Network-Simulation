@@ -7,7 +7,7 @@ class Mobile_Device : public PhysicalSystem
 private:
     double computation_speed; 
 public:
-    Mobile_Device(int _N, double _Velocity , double _computation_speed);
+    Mobile_Device(int _N, int id, double _TransmissionPower , double _computation_speed);
     virtual ~Mobile_Device() ;
     virtual void display_information(std::atomic<bool>& finished);
     double get_computation_Speed();
