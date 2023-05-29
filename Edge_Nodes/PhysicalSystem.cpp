@@ -3,7 +3,11 @@
 #include<unistd.h> 
 
 PhysicalSystem::PhysicalSystem(int _N, int Id, double transmissionpower) : N{_N} , Id{Id}, TransmissionPower{transmissionpower}
-{
+{   if (Id%2 == 0)
+        type = PS_Type::Mobile_Device ;
+    else
+        type = PS_Type::Smart_Vehicle ;
+
     task_size = new double[N];
     std::cout << "Constructor" << std::endl;
 }
@@ -16,9 +20,10 @@ PhysicalSystem::~PhysicalSystem()
 
 void PhysicalSystem::display_information(std::atomic<bool>& finished)
 {
-    while (true)
+
+    while (!finished)
     {
-        std::cout<< "TransmissionPower is equal to:" << TransmissionPower << std::endl; 
+        std::cout<< "Transmission Power is equal to:" << TransmissionPower << std::endl; 
         for (size_t i{}; i < N; i++)
         {
             std::cout << i << "th task size is: " << task_size[i] << " -- " ;  
@@ -33,14 +38,17 @@ void PhysicalSystem::display_information(std::atomic<bool>& finished)
 
 void PhysicalSystem::fill_tasks()
 {
+    // Task_Size.empty();
     while (true)
     {
         for (size_t i{0}; i < N; i++)
         {
-            task_size[i] = 10 ; 
+            task_size[i] = 100 ;
+            // Task_Size[i] = 10; 
             /* code */
         }  
-        sleep(7);
+        sleep(100);
+
     }
     
   

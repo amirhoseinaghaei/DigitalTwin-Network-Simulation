@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++2a -Wall -c 
 LXXFLAGS = -std=c++2a
-OBJECTS = main.o PhysicalSystem.o Mobile_Device.o Smart_Vehicle.o Base_station.o Digital_Twin.o PS_BS_Connection.o
+OBJECTS = main.o PhysicalSystem.o Mobile_Device.o Smart_Vehicle.o Base_station.o Digital_Twin.o PS_BS_Connection.o PS_ES_Channel.o
 TARGET = main
 
 
@@ -21,5 +21,7 @@ Digital_Twin.o: Digital_Twins/Digital_Twin.cpp
 	$(CXX) $(CXXFLAGS) Digital_Twins/Digital_Twin.cpp
 PS_BS_Connection.o: Application/Business/PS_BS_Connection.cpp
 	$(CXX) $(CXXFLAGS) Application/Business/PS_BS_Connection.cpp
+PS_ES_Channel.o: Communication_Channels/PS_ES_Channel.cpp Communication_Channels/PS_ES_Channel.h
+	$(CXX) $(CXXFLAGS) Communication_Channels/PS_ES_Channel.cpp
 clean:
 	rm -f $(TARGET) $(OBJECTS)

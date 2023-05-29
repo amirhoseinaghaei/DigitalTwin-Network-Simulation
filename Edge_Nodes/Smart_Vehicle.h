@@ -4,11 +4,11 @@
 
 #include "PhysicalSystem.h"
 
-
 class Smart_Vehicle : public PhysicalSystem
 {
 private:
     double computation_speed; 
+
 public:
     int a ;
     Smart_Vehicle(int _N, int id, double _TransmissionPower , double _computation_speed);

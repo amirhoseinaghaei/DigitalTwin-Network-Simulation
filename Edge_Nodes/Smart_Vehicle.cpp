@@ -14,6 +14,8 @@ Smart_Vehicle::~Smart_Vehicle()
 }
 void Smart_Vehicle::display_information(std::atomic<bool>& finished)
 {
+    if (static_cast<int>(type) == 1)
+        std::cout << "This is a smart vehicle" << std::endl;
     PhysicalSystem::display_information(finished); 
     std::cout << "Computation speed: " << get_computation_Speed() << std::endl;
 
