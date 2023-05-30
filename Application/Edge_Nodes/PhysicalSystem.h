@@ -4,7 +4,7 @@
 
 #include <atomic>
 #include <vector>
-#include "System_Type.h"
+#include "../Enums/System_Type.h"
 
 class PhysicalSystem
 {

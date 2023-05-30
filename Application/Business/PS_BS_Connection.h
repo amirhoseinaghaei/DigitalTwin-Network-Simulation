@@ -2,10 +2,10 @@
 #define PS_BS_CONNECTION_H
 
 
-#include "../../Edge_Nodes/PhysicalSystem.h"
+#include "../../Application/Edge_Nodes/PhysicalSystem.h"
 #include "../../Base_Stations/Base_station.h"
-#include "../../Edge_Nodes/Smart_Vehicle.h"
-#include "../../Edge_Nodes/Mobile_Device.h"
+#include "../../Application/Edge_Nodes/Smart_Vehicle.h"
+#include "../../Application/Edge_Nodes/Mobile_Device.h"
 #include "../../Communication_Channels/PS_ES_Channel.h"
 
 #include <vector>

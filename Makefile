@@ -7,14 +7,14 @@ TARGET = main
 
 $(TARGET): $(OBJECTS)
 	$(CXX) $(LXXFLAGS) $(OBJECTS) -o $(TARGET) -lpthread
-main.o: main.cpp Edge_Nodes/PhysicalSystem.h Edge_Nodes/Mobile_Device.h Edge_Nodes/Smart_Vehicle.h Base_Stations/Base_station.h Digital_Twins/Digital_Twin.h Application/Business/PS_BS_Connection.cpp
+main.o: main.cpp Application/Edge_Nodes/PhysicalSystem.h Application/Edge_Nodes/Mobile_Device.h Application/Edge_Nodes/Smart_Vehicle.h Base_Stations/Base_station.h Digital_Twins/Digital_Twin.h Application/Business/PS_BS_Connection.cpp
 	$(CXX) $(CXXFLAGS) main.cpp
-PhysicalSystem.o: Edge_Nodes/PhysicalSystem.cpp
-	$(CXX) $(CXXFLAGS) Edge_Nodes/PhysicalSystem.cpp
-Mobile_Device.o: Edge_Nodes/Mobile_Device.cpp Edge_Nodes/PhysicalSystem.h
-	$(CXX) $(CXXFLAGS) Edge_Nodes/Mobile_Device.cpp
-Smart_Vehicle.o: Edge_Nodes/Smart_Vehicle.cpp Edge_Nodes/PhysicalSystem.h
-	$(CXX) $(CXXFLAGS) Edge_Nodes/Smart_Vehicle.cpp
+PhysicalSystem.o: Application/Edge_Nodes/PhysicalSystem.cpp
+	$(CXX) $(CXXFLAGS) Application/Edge_Nodes/PhysicalSystem.cpp
+Mobile_Device.o: Application/Edge_Nodes/Mobile_Device.cpp Application/Edge_Nodes/PhysicalSystem.h
+	$(CXX) $(CXXFLAGS) Application/Edge_Nodes/Mobile_Device.cpp
+Smart_Vehicle.o: Application/Edge_Nodes/Smart_Vehicle.cpp Application/Edge_Nodes/PhysicalSystem.h
+	$(CXX) $(CXXFLAGS) Application/Edge_Nodes/Smart_Vehicle.cpp
 Base_station.o: Base_Stations/Base_station.cpp
 	$(CXX) $(CXXFLAGS) Base_Stations/Base_station.cpp
 Digital_Twin.o: Digital_Twins/Digital_Twin.cpp

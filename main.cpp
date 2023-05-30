@@ -4,9 +4,9 @@
 #include <utility>
 #include <thread>
 #include<unistd.h>
-#include "Edge_Nodes/PhysicalSystem.h"
-#include "Edge_Nodes/Mobile_Device.h"
-#include "Edge_Nodes/Smart_Vehicle.h"
+#include "Application/Edge_Nodes/PhysicalSystem.h"
+#include "Application/Edge_Nodes/Mobile_Device.h"
+#include "Application/Edge_Nodes/Smart_Vehicle.h"
 #include "Base_Stations/Base_station.h"
 #include "Digital_Twins/Digital_Twin.h"
 #include "Application/Business/PS_BS_Connection.h"
