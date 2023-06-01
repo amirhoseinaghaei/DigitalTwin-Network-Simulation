@@ -23,8 +23,7 @@ using namespace std::rel_ops;
 int main()
 {
 
-
-
+    std::cout << "aaaaayeeeeeeeee" << std::endl;    
     std::vector<PS_ES_Channel> channels{PS_ES_Channel{1,1},PS_ES_Channel{4,2},PS_ES_Channel{2,3}};
     PS_BS_Connection ps_bs{channels};
     PhysicalSystem* p1 = new Mobile_Device{1 , 0, 2, 80};
@@ -42,10 +41,7 @@ int main()
     th1.join();
     th3.join();
     delete p1;
-
-    PS_ES_Channel ch1{1,1};
-    std::cout << ch1.Calculate_Rate(2) << std::endl;
-
+    delete p2;
 
     return 0;
 }

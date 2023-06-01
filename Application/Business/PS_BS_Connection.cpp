@@ -34,7 +34,7 @@ void PS_BS_Connection::Send_PS(int preiod, PhysicalSystem* ps, int Bs_Id, std::a
             while (true)
             {
 
-                if(ps->get_tasksize()[i] <= 0)
+                if(ps->get_Data()[i].Size <= 0)
                 {
                     if (BSs.find(Bs_Id) != BSs.end())
                     {
@@ -50,10 +50,10 @@ void PS_BS_Connection::Send_PS(int preiod, PhysicalSystem* ps, int Bs_Id, std::a
                 }
                 else
                 {
-                    if ((ps->get_tasksize()[i] - Channels[channel_index].Calculate_Rate(ps->get_transmissionpower())) >= 0 )
-                        ps->get_tasksize()[i] -= Channels[channel_index].Calculate_Rate(ps->get_transmissionpower());
+                    if ((ps->get_Data()[i].Size - Channels[channel_index].Calculate_Rate(ps->get_transmissionpower())) >= 0 )
+                        ps->get_Data()[i].Size -= Channels[channel_index].Calculate_Rate(ps->get_transmissionpower());
                     else
-                        ps->get_tasksize()[i] = 0;
+                        ps->get_Data()[i].Size = 0;
 
                 }
                 sleep(1);            
